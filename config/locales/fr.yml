@@ -1,0 +1,6 @@
+fr:
+  project_module_git_server: Serveur Git
+  clone: Cloner
+  clone_with_protocol: Cloner via %{protocol}
+  use_git_with_this_web_url: Utilisez Git avec cette URL.
+  url_copied: URL copiée dans le presse-papiers

@@ -1,0 +1,43 @@
+.clone-wrapper {
+  display: inline-block;
+  margin-left: O!important;
+}
+.clone-button {
+  background-color: #fff;
+  background-image: url(../../../images/arrow_down.png);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 7px) 50%;
+  padding-right: 20px;
+  font-size: 0.9em;
+}
+.clone-dropdown {
+  top: 28px!important;  
+  padding: 1em;
+  width: 350px;
+ }
+.clone-input-group {
+  display: flex;
+  flex-direction: row;
+}
+.clone-input-group > * {
+  height: 26px!important;
+}
+.clone-input-group input {
+  flex: 1;
+  font-size: 1.2em;
+  font-family: inherit;
+}
+.clone-input-group button {
+  flex: none;
+  margin-left: 0.5em;
+}
+.clone-input-group button img {
+  vertical-align: middle;
+}
+.clone-dropdown .flash.notice {
+  display: none;
+  position: absolute;
+  padding-right: 1em;
+  right: .5em;
+  margin-top: 1.5em;
+}
