@@ -4,3 +4,5 @@ en:
   clone_with_protocol: Clone with %{protocol}
   use_git_with_this_web_url: Use Git with this web URL.
   url_copied: URL copied to the clipboard
+  git_read_write_access: Read/write access.
+  git_read_only_access: Read only access.

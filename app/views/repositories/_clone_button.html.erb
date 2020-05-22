@@ -1,11 +1,21 @@
-<% if @project.module_enabled?("git_server") %>
+<% user = User.current %>
+<% write_access = user.allowed_to?(:commit_access, @project) %>
+<% read_access = user.allowed_to?(:view_changesets, @project) %>
+<% if @project.module_enabled?("git_server") and read_access %>
   | 
   <%= content_tag :div, class: 'drdn clone-wrapper' do %>
     <%= button_tag l(:clone), type: 'button', class: 'drdn-trigger clone-button' %>
     <%= content_tag :div, class: 'drdn-content clone-dropdown' do %>
       <% protocol = Setting['protocol'] %>
       <h4><%= l(:clone_with_protocol, protocol: protocol.upcase) %></h4> 
-      <p><%= l(:use_git_with_this_web_url) %></p>
+      <p>
+        <%= l(:use_git_with_this_web_url) %>
+        <% if write_access %>
+          <%= l(:git_read_write_access) %>
+        <% else %>
+          <%= l(:git_read_only_access) %>
+        <% end %>
+      </p>
       <%= content_tag :code, class: 'clone-input-group' do %>
         <% url = url_for(
           controller: 'repositories', 
