@@ -3,7 +3,7 @@ Redmine::Plugin.register :redmine_git_server do
   author 'Romain Lalaut'
   description 'This is a plugin for Redmine allowing to serve the git repositories through the http connection'
   url 'https://github.com/voondo/redmine_git_server'
-  version '0.2'
+  version '0.3'
   author_url 'https://github.com/voondo'
   project_module :git_server do
     permission :enable_git_server, {}
