@@ -1,0 +1,28 @@
+<% user = User.current %>
+<% write_access = user.allowed_to?(:commit_access, @project) %>
+<% read_access = user.allowed_to?(:view_changesets, @project) %>
+<%= content_tag :div, class: 'clone-form' do %>
+  <% protocol = Setting['protocol'] %>
+  <p>
+    <%= l(:use_git_with_this_web_url) %>
+    <% if write_access %>
+      <%= l(:git_read_write_access) %>
+    <% else %>
+      <%= l(:git_read_only_access) %>
+    <% end %>
+  </p>
+  <%= content_tag :code, class: 'clone-input-group' do %>
+    <% url = url_for(
+      controller: 'repositories', 
+      action: 'show', 
+      id: @project.identifier, 
+      repository_id: @repository.identifier, 
+      user: User.current.login,
+      password: '',
+      only_path: false, 
+      protocol: protocol).sub(':@', '@') %>
+    <%= text_field_tag 'url', url, readonly: true %>
+    <%= button_tag image_tag('../plugin_assets/redmine_git_server/images/copy-to-clipboard.png') %>
+  <% end %>
+  <div class="flash notice"><%= l(:url_copied) %></div>
+<% end %>

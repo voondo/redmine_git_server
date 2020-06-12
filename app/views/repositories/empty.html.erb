@@ -1,0 +1,10 @@
+<% user = User.current %>
+<% write_access = user.allowed_to?(:commit_access, @project) %>
+<% read_access = user.allowed_to?(:view_changesets, @project) %>
+<div class="flash warning">
+  <%= l(:empty_repository) %>
+</div>
+
+<div class="empty-clone-form">
+  <%= render 'clone_form' %>
+</div>

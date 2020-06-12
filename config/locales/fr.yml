@@ -4,3 +4,7 @@ fr:
   clone_with_protocol: Cloner via %{protocol}
   use_git_with_this_web_url: Utilisez Git avec cette URL.
   url_copied: URL copiée dans le presse-papiers
+  git_read_write_access: Accès en lecture/écriture.
+  git_read_only_access: Accès en lecture seule.
+  empty_repository: Ce dépôt est vide.
+

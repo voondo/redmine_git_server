@@ -34,10 +34,14 @@
 .clone-input-group button img {
   vertical-align: middle;
 }
-.clone-dropdown .flash.notice {
+.clone-form .flash.notice {
   display: none;
   position: absolute;
   padding-right: 1em;
   right: .5em;
   margin-top: 1.5em;
+}
+.empty-clone-form {
+  max-width: 600px;
+  position: relative;
 }
