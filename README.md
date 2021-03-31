@@ -46,7 +46,7 @@ Alternatives
 * [redmine_git_hosting](http://redmine-git-hosting.io/) - based on Gitolite, this plugin offer a **lot** more features but it is also more complex to setup.
 
 
-Knowns issues
--------------
+Known issues
+------------
 
 Puma 3.7 which is currently bundled with Redmine has an issue with chunked uploads. You can upgrade to Puma 4.3 or configure git locally to avoid chunked uploads (eg. `git config --global http.postBuffer 524288000`)
