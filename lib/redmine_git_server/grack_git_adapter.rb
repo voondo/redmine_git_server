@@ -8,8 +8,9 @@ module RedmineGitServer
       opts[:chdir] = dir unless dir.nil?
       cmd << opts
       IO.popen(cmd, 'r+b') do |pipe|
-        while !io_in.nil? and !io_in.closed? and !io_in.eof? do
+        while !io_in.nil? do
           chunk = io_in.read(READ_SIZE)
+          break if chunk.nil?
           pipe.write(chunk)
         end
         pipe.close_write
