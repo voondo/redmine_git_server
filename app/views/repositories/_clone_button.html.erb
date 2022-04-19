@@ -1,7 +1,7 @@
 <% user = User.current %>
 <% write_access = user.allowed_to?(:commit_access, @project) %>
 <% read_access = user.allowed_to?(:view_changesets, @project) %>
-<% if @project.module_enabled?("git_server") and read_access %>
+<% if @project.module_enabled?("git_server") and read_access and @repository.type.end_with? "Git" %>
   | 
   <%= content_tag :div, class: 'drdn clone-wrapper' do %>
     <%= button_tag l(:clone), type: 'button', class: 'drdn-trigger clone-button' %>
