@@ -1,12 +1,12 @@
 require_dependency 'repositories_controller'
 
-module RepositoriesControllerWithGitServerSupport
-
-  def show_error_not_found
-    return super if params[:action] != 'show'
-    render action: 'empty'
+module RedmineGitServer::Patches
+  module RepositoriesControllerPatch
+    def show_error_not_found
+      return super if params[:action] != 'show'
+      render action: 'empty'
+    end
   end
-
 end
 
-RepositoriesController.send(:prepend, RepositoriesControllerWithGitServerSupport)
+RepositoriesController.send(:prepend, RedmineGitServer::Patches::RepositoriesControllerPatch)
