@@ -10,6 +10,8 @@ Redmine::Plugin.register :redmine_git_server do
   end
 end
 
+$LOAD_PATH.unshift "#{File.dirname(__FILE__)}/lib"
+
 require_dependency 'redmine_git_server/hooks'
 
 app = Rails.application
